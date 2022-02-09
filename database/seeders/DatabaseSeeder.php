@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder {
 
     $this->call([
       UserTableSeed::class,
+      IpAddressSeeder::class,
+      HostSeeder::class
     ]);
   }
 }

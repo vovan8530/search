@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class HostFactory extends Factory {
+class IpAddressFactory extends Factory {
   /**
    * Define the model's default state.
    *
@@ -12,7 +12,7 @@ class HostFactory extends Factory {
    */
   public function definition() {
     return [
-      'name' => $this->faker->domainName()
+      'address' => $this->faker->ipv4()
     ];
   }
 }

@@ -8,25 +8,25 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Carbon;
 
 /**
- * Class Host
+ * Class IpAdress
  * @package App\Models
  *
  * @property int $id
- * @property string $name
+ * @property string $address
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
- * @property Host $host
- * @property Host[] $hosts
+ * @property IpAddress $ipAddress
+ * @property IpAddress[] $ipAddresses
  *
  */
-class Host extends Model {
+class IpAddress extends Model {
   use HasFactory;
 
   /**
    * @var string
    */
-  protected $table = 'hosts';
+  protected $table = 'ip_addresses';
 
   /**
    * The attributes that are mass assignable.
@@ -34,7 +34,7 @@ class Host extends Model {
    * @var string[]
    */
   protected $fillable = [
-    'name',
+    'address',
   ];
 
   /**
@@ -43,24 +43,15 @@ class Host extends Model {
    * @var string[]
    */
   protected $casts = [
-    'name' => 'string',
+    'address' => 'string',
   ];
 
   /**
-   * Get ipAddress from host
+   * Get hosts from ipAddress
    *
    * @return Relation
    */
-  public function ipAddress(): Relation{
-    return $this->belongsTo(IpAddress::class);
-  }
-
-  /**
-   * Get users from host
-   *
-   * @return Relation
-   */
-  public function users(): Relation {
-    return $this->belongsToMany(User::class)->withTimestamps();
+  public function hosts(): Relation {
+    return $this->hasMany(Host::class);
   }
 }

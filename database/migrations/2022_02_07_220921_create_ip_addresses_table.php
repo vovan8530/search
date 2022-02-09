@@ -4,16 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHostsTable extends Migration {
+class CreateIpAddressesTable extends Migration {
   /**
    * Run the migrations.
    *
    * @return void
    */
   public function up() {
-    Schema::create('hosts', function (Blueprint $table) {
+    Schema::create('ip_addresses', function (Blueprint $table) {
       $table->id();
-      $table->string('name');
+      $table->string('address');
       $table->timestamps();
     });
   }
@@ -24,6 +24,6 @@ class CreateHostsTable extends Migration {
    * @return void
    */
   public function down() {
-    Schema::dropIfExists('hosts');
+    Schema::dropIfExists('ip_addresses');
   }
 }

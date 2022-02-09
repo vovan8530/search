@@ -6,7 +6,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('search')" :active="request()->routeIs('search')">
+                    <x-nav-link :href="route('search-form')" :active="request()->routeIs('search-form')">
                         {{ __('Search IP') }}
                     </x-nav-link>
                     <x-nav-link :href="route('hosts')" :active="request()->routeIs('hosts')">
@@ -60,7 +60,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('search')" :active="request()->routeIs('search')">
+            <x-responsive-nav-link :href="route('search-form')" :active="request()->routeIs('search-form')">
                 {{ __('Search') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('hosts')" :active="request()->routeIs('hosts')">

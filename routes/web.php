@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HostController;
+use App\Http\Controllers\IpAddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +22,13 @@ Route::get('/', function () {
 # TODO: #### PAGES ####
 
 Route::group(['middleware' => 'auth'], function () {
-  Route::get('search', function () {
-    return view('pages.search-form');
-  })->name('search');
-  Route::get('hosts', function () {
-    return view('pages.hosts');
-  })->name('hosts');
+  Route::get('search-form', [HostController::class, 'searchForm'])->name('search-form');
+  Route::get('hosts', [HostController::class, 'index'])->name('hosts');
+  Route::post('search', [IpAddressController::class, 'searchIpAddress'])->name('search');
 });
 
 # TODO: #### PAGES ####
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
